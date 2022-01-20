@@ -44,8 +44,8 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("age") != null){
-            try{
+        if(request.getParameter("age") != null){  //to check if input is entered by user
+            try{                                              //try catch method used for error handling
             String ageString = request.getParameter("age");
             int age= Integer.parseInt(ageString);
             
