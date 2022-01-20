@@ -27,6 +27,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("message","---" ); //setting default value "---" if no calculations has been done.
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
@@ -41,9 +42,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("first") != null){
+        if(request.getParameter("first") != null){    //to check if there is no input entered by user
            try{
-            if(request.getParameter("second") != null){
+            if(request.getParameter("second") != null){      //to check if there is no input entered by user
                 if(request.getParameter("add") != null){
                     String firstString = request.getParameter("first");
                    int first= Integer.parseInt(firstString);
